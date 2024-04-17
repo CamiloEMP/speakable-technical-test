@@ -1,6 +1,7 @@
 import express from "express"
 import { createCourseRoutes } from "./routes/courses.routes"
 import { CourseModelType } from "./schemas/courses.schemas"
+import "dotenv/config"
 
 export const createApp = ({
   courseModel
