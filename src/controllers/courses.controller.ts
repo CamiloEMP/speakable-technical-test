@@ -10,6 +10,20 @@ export class CoursesController {
     this.courseModel = courseModel
   }
 
+  getAllCourses = async (req: Request, res: Response) => {
+    try {
+      const courses = await this.courseModel.getAllCourses()
+
+      res.json(courses)
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(500).json({ error: error.message })
+      }
+
+      res.status(500).json({ error: "An unknown error occurred" })
+    }
+  }
+
   getSections = async (req: Request, res: Response) => {
     const courseId = req.params.courseId
     const params = req.query

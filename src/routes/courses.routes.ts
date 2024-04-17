@@ -12,6 +12,7 @@ export const createCourseRoutes = ({
 
   const courseController = new CoursesController({ courseModel })
 
+  courseRouter.get("/", courseController.getAllCourses)
   courseRouter.get("/:courseId/sections", courseController.getSections)
 
   return courseRouter

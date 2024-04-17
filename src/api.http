@@ -3,3 +3,6 @@ GET http://localhost:3000/courses/1/sections
 
 ### Get all sections from a course with parameters
 GET http://localhost:3000/courses/1/sections?include=students
+
+### Get a section from a course
+GET http://localhost:3000/courses
