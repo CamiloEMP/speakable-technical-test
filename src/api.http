@@ -1,0 +1,2 @@
+### Get all sections from a course
+GET http://localhost:3000/courses/1/sections
