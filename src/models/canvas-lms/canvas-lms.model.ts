@@ -1,8 +1,5 @@
-import {
-  CANVAS_LMS_API_CONFIG,
-  fetchCanvasApi
-} from "@/config/canvas-lms-api.config"
-import { CanvasLmsApi as TCanvasLmsApi } from "./canvas-lms.model"
+import { fetchCanvasApi } from "@/config/canvas-lms-api.config"
+import { CanvasLmsApi as TCanvasLmsApi } from "@/schemas/canvas-lms.schemas"
 
 export class CanvasLmsApi implements TCanvasLmsApi {
   async get<T>(path: string, params?: RequestInit): Promise<T> {
