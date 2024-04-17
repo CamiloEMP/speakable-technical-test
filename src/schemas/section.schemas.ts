@@ -29,11 +29,13 @@ export interface Section {
   total_students: number
 }
 
-export const enum SectionGetParams {
-  STUDENTS = "students",
-  AVATAR_URL = "avatar_url",
-  ENROLLMENTS = "enrollments",
-  TOTAL_STUDENTS = "total_students",
-  PASSBACK_STATUS = "passback_status",
-  PERMISSIONS = "permissions"
+export interface SectionGetParams {
+  include:
+    | "students"
+    | "avatar_url"
+    | "enrollments"
+    | "total_students"
+    | "passback_status"
+    | "permissions"
+  search_term: string
 }

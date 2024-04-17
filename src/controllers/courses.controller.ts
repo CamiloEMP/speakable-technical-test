@@ -1,4 +1,5 @@
 import { CourseModelType } from "@/schemas/courses.schemas"
+import { SectionGetParams } from "@/schemas/section.schemas"
 
 import { Request, Response } from "express"
 
@@ -21,8 +22,18 @@ export class CoursesController {
       return res.status(400).json({ error: "Invalid courseId" })
     }
 
+    let sectionParams = undefined
+
+    // This should be validated as well
+    if (Object.keys(params).length > 0) {
+      sectionParams = params as unknown as SectionGetParams
+    }
+
     try {
-      const sections = await this.courseModel.getSections(+courseId, params)
+      const sections = await this.courseModel.getSections(
+        +courseId,
+        sectionParams
+      )
 
       res.json(sections)
     } catch (error) {
