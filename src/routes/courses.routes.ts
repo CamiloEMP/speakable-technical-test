@@ -1,4 +1,4 @@
-import { CourseModel } from "@/schemas/courses.schemas"
+import { type CourseModelType } from "@/schemas/courses.schemas"
 
 import { Router } from "express"
 import { CoursesController } from "@/controllers/courses.controller"
@@ -6,7 +6,7 @@ import { CoursesController } from "@/controllers/courses.controller"
 export const createCourseRoutes = ({
   courseModel
 }: {
-  courseModel: CourseModel
+  courseModel: CourseModelType
 }) => {
   const courseRouter = Router()
 

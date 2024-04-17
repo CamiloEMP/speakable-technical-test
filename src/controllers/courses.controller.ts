@@ -1,14 +1,15 @@
-import { CourseModel } from "@/schemas/courses.schemas"
+import { CourseModelType } from "@/schemas/courses.schemas"
+
 import { Request, Response } from "express"
 
 export class CoursesController {
-  courseModel: CourseModel
+  courseModel: CourseModelType
 
-  constructor({ courseModel }: { courseModel: CourseModel }) {
+  constructor({ courseModel }: { courseModel: CourseModelType }) {
     this.courseModel = courseModel
   }
 
-  async getSections(req: Request, res: Response) {
+  getSections = async (req: Request, res: Response) => {
     const courseId = req.params.courseId
     const params = req.query
 

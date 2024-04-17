@@ -1,6 +1,4 @@
 import { createApp } from "./app"
-import { courseModel } from "./models/canvas-lms/courses.model"
+import { CourseModel } from "./models/canvas-lms/courses.model"
 
-const app = createApp({
-  courseModel: courseModel
-})
+createApp({ courseModel: new CourseModel() })

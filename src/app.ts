@@ -1,9 +1,12 @@
-import { CourseModel } from "./schemas/courses.schemas"
-
 import express from "express"
 import { createCourseRoutes } from "./routes/courses.routes"
+import { CourseModelType } from "./schemas/courses.schemas"
 
-export const createApp = ({ courseModel }: { courseModel: CourseModel }) => {
+export const createApp = ({
+  courseModel
+}: {
+  courseModel: CourseModelType
+}) => {
   const app = express()
 
   app.use("/courses", createCourseRoutes({ courseModel }))
