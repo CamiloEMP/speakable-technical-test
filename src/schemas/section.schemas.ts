@@ -1,3 +1,5 @@
+import { User } from "./user.schemas"
+
 export interface Section {
   // The unique identifier for the section.
   id: string
@@ -27,6 +29,8 @@ export interface Section {
   nonxlist_course_id: string | null
   // optional: the total number of active and invited students in the section
   total_students: number
+  // optional: if (students param) is included
+  students?: User[]
 }
 
 export interface SectionGetParams {
