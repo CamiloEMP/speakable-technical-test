@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:canvas": "ts-node-dev -r tsconfig-paths/register src/index.ts",
+    "dev:canvas": "ts-node-dev -r tsconfig-paths/register src/server-with-canvas-lms-api.ts",
     "dev:local": "ts-node-dev -r tsconfig-paths/register src/server-local-data.ts",
     "build": "tsc",
     "start": "node dist/index.js",
