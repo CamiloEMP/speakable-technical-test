@@ -13,8 +13,10 @@ export class CoursesController {
   }
 
   getAllCourses = async (req: Request, res: Response) => {
+    const accessToken = (req.user as { accessToken?: string })?.accessToken
+
     try {
-      const courses = await this.courseModel.getAllCourses()
+      const courses = await this.courseModel.getAllCourses(accessToken || "")
 
       res.json(courses)
     } catch (error) {
@@ -27,6 +29,7 @@ export class CoursesController {
   getSections = async (req: Request, res: Response) => {
     const courseId = req.params.courseId
     const params = req.query
+    const accessToken = (req.user as { accessToken?: string })?.accessToken
 
     if (!courseId) {
       throw new BadRequestError("Missing courseId")
@@ -44,10 +47,11 @@ export class CoursesController {
     }
 
     try {
-      const sections = await this.courseModel.getSections(
-        +courseId,
-        sectionParams
-      )
+      const sections = await this.courseModel.getSections({
+        courseId: +courseId,
+        params: sectionParams,
+        accessToken: accessToken || ""
+      })
 
       res.json(sections)
     } catch (error) {

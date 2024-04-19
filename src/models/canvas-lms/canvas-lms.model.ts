@@ -2,9 +2,21 @@ import { fetchCanvasApi } from "@/config/canvas-lms-api.config"
 import { CanvasLmsApi as TCanvasLmsApi } from "@/schemas/canvas-lms.schemas"
 
 export class CanvasLmsApi implements TCanvasLmsApi {
-  async get<T>(path: string, params?: RequestInit): Promise<T> {
+  async get<T>(
+    path: string,
+    {
+      accessToken,
+      params
+    }: {
+      accessToken: string
+      params?: RequestInit
+    }
+  ): Promise<T> {
     try {
-      const response = await fetchCanvasApi(path, params)
+      const response = await fetchCanvasApi(path, {
+        accessToken: accessToken,
+        params: params
+      })
 
       return response as T
     } catch (error) {

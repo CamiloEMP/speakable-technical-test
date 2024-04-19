@@ -18,10 +18,20 @@ passport.use(
       callbackURL: "http://localhost:3000/auth/canvas/callback"
     },
     function (accessToken: string, _: string, a: string, done: Function) {
-      return done(null, { accessToken: accessToken })
+      const user = { accessToken }
+
+      return done(null, user)
     }
   )
 )
+
+passport.serializeUser(function (user: any, done) {
+  done(null, user)
+})
+
+passport.deserializeUser(function (obj: any, done) {
+  done(null, obj)
+})
 
 export const createApp = ({
   courseModel
@@ -37,7 +47,7 @@ export const createApp = ({
   app.get(
     "/auth/canvas/callback",
     passport.authenticate("oauth2", { failureRedirect: "/login" }),
-    function (req, res) {
+    function (_, res) {
       res.redirect("/")
     }
   )

@@ -8,9 +8,11 @@ import { createSectionCanvasLMS } from "@/lib/firebase/services/create-section-c
 
 export class CourseModel implements CourseModelType {
   // This method is only to test the integration with Canvas LMS API
-  async getAllCourses() {
+  async getAllCourses(accessToken: string) {
     try {
-      const response = await canvasLmsApi.get<any[]>("/courses")
+      const response = await canvasLmsApi.get<any[]>("/courses", {
+        accessToken
+      })
 
       return response
     } catch (error) {
@@ -18,13 +20,23 @@ export class CourseModel implements CourseModelType {
     }
   }
 
-  async getSections(courseId: number, params: SectionGetParams | undefined) {
+  async getSections({
+    accessToken,
+    courseId,
+    params
+  }: {
+    courseId: number
+    params: SectionGetParams | undefined
+    accessToken: string
+  }) {
     try {
       const path = buildPath(`/courses/${courseId}/sections`, {
         ...params
       })
 
-      const response = await canvasLmsApi.get<{ data: Section[] }>(path)
+      const response = await canvasLmsApi.get<{ data: Section[] }>(path, {
+        accessToken
+      })
 
       const sections = response.data ?? []
 

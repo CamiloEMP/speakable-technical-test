@@ -1,6 +1,10 @@
 import type { Section, SectionGetParams } from "./section.schemas"
 
 export interface CourseModelType {
-  getSections(courseId: number, params?: SectionGetParams): Promise<Section[]>
-  getAllCourses(): Promise<any[]>
+  getAllCourses(accessToken: string): Promise<any[]>
+  getSections(params: {
+    courseId: number
+    params?: SectionGetParams
+    accessToken: string
+  }): Promise<Section[]>
 }
