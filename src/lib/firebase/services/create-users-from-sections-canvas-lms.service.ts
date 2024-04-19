@@ -7,7 +7,7 @@ export async function createUsersFromSectionsCanvasLMS(sections: Section[]) {
   const users: UserCanvasLMS[] = sections
     .map((section) => section.students)
     .flat()
-    .filter((i) => i == null) as UserCanvasLMS[]
+    .filter((i) => i != null) as UserCanvasLMS[]
 
   if (!users) return
 
