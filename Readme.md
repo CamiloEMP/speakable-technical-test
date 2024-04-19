@@ -24,14 +24,24 @@ Go to the project directory
   cd speakable-technical-test
 ```
 
-Install dependencies
+Install dependencies (I recommend using pnpm, but you can use npm or yarn)
 
 ```bash
   pnpm install
 ```
 
-Start the server
+Start the server with Canvas LMS Api
 
 ```bash
   pnpm dev
 ```
+
+Start the server with Local Files
+
+```bash
+  pnpm dev:local
+```
+
+## Tech Stack
+
+Express, Typescript, Passport, Firebase Admin
