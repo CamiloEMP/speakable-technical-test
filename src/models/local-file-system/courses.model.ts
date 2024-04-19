@@ -32,8 +32,7 @@ export class CourseModel implements CourseModelType {
 
       let sections: Section[] = []
 
-      // Simulate params
-
+      // Simulation of params
       if (params?.include !== "students") {
         sections = sections_mock.map((section) => {
           const { students: _, ...rest } = section
@@ -43,8 +42,8 @@ export class CourseModel implements CourseModelType {
         sections = sections_mock
       }
 
-      // await createSectionCanvasLMS(sections)
-      // await createUsersFromSectionsCanvasLMS(sections)
+      await createSectionCanvasLMS(sections)
+      await createUsersFromSectionsCanvasLMS(sections)
 
       return sections
     } catch (error) {
