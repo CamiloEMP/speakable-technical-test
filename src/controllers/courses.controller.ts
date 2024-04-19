@@ -1,3 +1,5 @@
+import { BadRequestError } from "@/errors/custom-errors"
+import { handleResponseError } from "@/errors/handle-response-error"
 import { CourseModelType } from "@/schemas/courses.schemas"
 import { SectionGetParams } from "@/schemas/section.schemas"
 
@@ -16,11 +18,9 @@ export class CoursesController {
 
       res.json(courses)
     } catch (error) {
-      if (error instanceof Error) {
-        return res.status(500).json({ error: error.message })
-      }
+      const customError = handleResponseError(error)
 
-      res.status(500).json({ error: "An unknown error occurred" })
+      res.status(customError.status).json({ error: customError.message })
     }
   }
 
@@ -29,11 +29,11 @@ export class CoursesController {
     const params = req.query
 
     if (!courseId) {
-      return res.status(400).json({ error: "Missing courseId" })
+      throw new BadRequestError("Missing courseId")
     }
 
     if (isNaN(+courseId)) {
-      return res.status(400).json({ error: "Invalid courseId" })
+      throw new BadRequestError("Missing courseId")
     }
 
     let sectionParams = undefined
@@ -51,11 +51,9 @@ export class CoursesController {
 
       res.json(sections)
     } catch (error) {
-      if (error instanceof Error) {
-        return res.status(500).json({ error: error.message })
-      }
+      const customError = handleResponseError(error)
 
-      res.status(500).json({ error: "An unknown error occurred" })
+      res.status(customError.status).json({ error: customError.message })
     }
   }
 }

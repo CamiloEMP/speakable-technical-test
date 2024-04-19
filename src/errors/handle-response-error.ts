@@ -14,4 +14,9 @@ export function handleResponseError(err: unknown, errorUnknown?: string) {
       message: err.message
     }
   }
+
+  return {
+    status: 500,
+    message: errorUnknown || "Internal server error"
+  }
 }
