@@ -16,3 +16,8 @@ export const BadRequestError = createCustomError(
   "BadRequestError",
   "The request is invalid"
 )
+
+export const CanvasLmsApiError = createCustomError(
+  "CanvasLmsApiError",
+  "An error occurred with the Canvas LMS API"
+)

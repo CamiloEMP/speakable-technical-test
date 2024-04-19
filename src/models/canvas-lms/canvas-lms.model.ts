@@ -3,9 +3,13 @@ import { CanvasLmsApi as TCanvasLmsApi } from "@/schemas/canvas-lms.schemas"
 
 export class CanvasLmsApi implements TCanvasLmsApi {
   async get<T>(path: string, params?: RequestInit): Promise<T> {
-    const response = await fetchCanvasApi(path, params)
+    try {
+      const response = await fetchCanvasApi(path, params)
 
-    return response as T
+      return response as T
+    } catch (error) {
+      throw error
+    }
   }
 
   async post<T>(path: string, body: any): Promise<T> {

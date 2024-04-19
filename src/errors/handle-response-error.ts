@@ -1,4 +1,8 @@
-import { BadRequestError, FirebaseError } from "./custom-errors"
+import {
+  BadRequestError,
+  CanvasLmsApiError,
+  FirebaseError
+} from "./custom-errors"
 
 export function handleResponseError(err: unknown, errorUnknown?: string) {
   if (err instanceof FirebaseError) {
@@ -11,6 +15,13 @@ export function handleResponseError(err: unknown, errorUnknown?: string) {
   if (err instanceof BadRequestError) {
     return {
       status: 400,
+      message: err.message
+    }
+  }
+
+  if (err instanceof CanvasLmsApiError) {
+    return {
+      status: 500,
       message: err.message
     }
   }
