@@ -1,7 +1,27 @@
 import express from "express"
+import "dotenv/config"
+import passport from "passport"
+import OAuth2Strategy from "passport-oauth2"
+
+import { CANVAS_LMS_API_CONFIG } from "@/config/canvas-lms-api.config"
 import { createCourseRoutes } from "./routes/courses.routes"
 import { CourseModelType } from "./schemas/courses.schemas"
-import "dotenv/config"
+import { ensureAuthenticated } from "./middlewares/auth.middleware"
+
+passport.use(
+  new OAuth2Strategy(
+    {
+      authorizationURL: "https://canvas.instructure.com/login/oauth2/auth",
+      tokenURL: "https://canvas.instructure.com/login/oauth2/token",
+      clientID: CANVAS_LMS_API_CONFIG.clientId,
+      clientSecret: CANVAS_LMS_API_CONFIG.clientSecret,
+      callbackURL: "http://localhost:3000/auth/canvas/callback"
+    },
+    function (accessToken: string, _: string, a: string, done: Function) {
+      return done(null, { accessToken: accessToken })
+    }
+  )
+)
 
 export const createApp = ({
   courseModel
@@ -12,6 +32,17 @@ export const createApp = ({
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
 
+  app.get("/auth/canvas", passport.authenticate("oauth2"))
+
+  app.get(
+    "/auth/canvas/callback",
+    passport.authenticate("oauth2", { failureRedirect: "/login" }),
+    function (req, res) {
+      res.redirect("/")
+    }
+  )
+
+  app.use("/courses", ensureAuthenticated)
   app.use("/courses", createCourseRoutes({ courseModel }))
 
   const port = process.env.PORT ?? 3000

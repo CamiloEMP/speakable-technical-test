@@ -1,6 +1,7 @@
 import { type CourseModelType } from "@/schemas/courses.schemas"
 
 import { Router } from "express"
+
 import { CoursesController } from "@/controllers/courses.controller"
 
 export const createCourseRoutes = ({
