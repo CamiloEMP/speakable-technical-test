@@ -33,7 +33,7 @@ Install dependencies (I recommend using pnpm, but you can use npm or yarn)
 Start the server with Canvas LMS Api
 
 ```bash
-  pnpm dev
+  pnpm dev:canvas
 ```
 
 Start the server with Local Files
