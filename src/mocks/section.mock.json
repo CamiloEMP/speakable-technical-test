@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1",
+    "name": "Section A",
+    "sis_section_id": "SIS123",
+    "integration_id": "INT123",
+    "sis_import_id": 123,
+    "course_id": 101,
+    "sis_course_id": "SIS101",
+    "start_at": "2024-04-01",
+    "end_at": "2024-06-30",
+    "restrict_enrollments_to_section_dates": null,
+    "nonxlist_course_id": null,
+    "total_students": 30,
+    "students": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "sortable_name": "Doe, John",
+        "last_name": "Doe",
+        "first_name": "John",
+        "short_name": "John D.",
+        "sis_user_id": "SISU123",
+        "sis_import_id": 456,
+        "integration_id": "INTU123",
+        "login_id": "johndoe@example.com",
+        "avatar_url": "https://example.com/avatar.jpg",
+        "avatar_state": "active",
+        "enrollments": null,
+        "email": "johndoe@example.com",
+        "locale": "en-US",
+        "last_login": "2024-04-15T10:00:00Z",
+        "time_zone": "America/New_York",
+        "bio": "Lorem ipsum dolor sit amet."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Section B",
+    "sis_section_id": "SIS456",
+    "integration_id": "INT456",
+    "sis_import_id": 456,
+    "course_id": 102,
+    "sis_course_id": "SIS102",
+    "start_at": "2024-04-15",
+    "end_at": "2024-07-15",
+    "restrict_enrollments_to_section_dates": null,
+    "nonxlist_course_id": null,
+    "total_students": 25,
+    "students": [
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "sortable_name": "Smith, Jane",
+        "last_name": "Smith",
+        "first_name": "Jane",
+        "short_name": "Jane S.",
+        "sis_user_id": "SISU456",
+        "sis_import_id": 789,
+        "integration_id": "INTU456",
+        "login_id": "janesmith@example.com",
+        "avatar_url": "https://example.com/avatar2.jpg",
+        "avatar_state": "active",
+        "enrollments": null,
+        "email": "janesmith@example.com",
+        "locale": "en-US",
+        "last_login": "2024-04-14T09:30:00Z",
+        "time_zone": "America/Los_Angeles",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Section C",
+    "sis_section_id": "SIS789",
+    "integration_id": "INT789",
+    "sis_import_id": 789,
+    "course_id": 103,
+    "sis_course_id": "SIS103",
+    "start_at": "2024-05-01",
+    "end_at": "2024-08-01",
+    "restrict_enrollments_to_section_dates": null,
+    "nonxlist_course_id": null,
+    "total_students": 20,
+    "students": []
+  }
+]
