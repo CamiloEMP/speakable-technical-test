@@ -10,6 +10,10 @@ To run this project, you will need to add the following environment variables to
 
 `CANVAS_LMS_CLIENT_SECRET`
 
+Also you need to create a service account key for Firebase Admin and add the file to the root of the project with the name `serviceAccountKey.json`
+
+Documentation for Firebase Admin: https://firebase.google.com/docs/admin/setup
+
 ## Run Locally
 
 Clone the project
