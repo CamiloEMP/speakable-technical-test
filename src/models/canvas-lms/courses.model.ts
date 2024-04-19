@@ -34,11 +34,11 @@ export class CourseModel implements CourseModelType {
         ...params
       })
 
-      const response = await canvasLmsApi.get<{ data: Section[] }>(path, {
+      const response = await canvasLmsApi.get<Section[]>(path, {
         accessToken
       })
 
-      const sections = response.data ?? []
+      const sections = response ?? []
 
       await createSectionCanvasLMS(sections)
       await createUsersFromSectionsCanvasLMS(sections)
