@@ -1,4 +1,4 @@
-export interface User {
+export interface UserCanvasLMS {
   // The ID of the user.
   id: number
   // The name of the user.

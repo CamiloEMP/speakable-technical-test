@@ -1,4 +1,4 @@
-import { User } from "./user.schemas"
+import { UserCanvasLMS } from "./user.schemas"
 
 export interface Section {
   // The unique identifier for the section.
@@ -30,7 +30,7 @@ export interface Section {
   // optional: the total number of active and invited students in the section
   total_students: number
   // optional: if (students param) is included
-  students?: User[]
+  students?: UserCanvasLMS[]
 }
 
 export interface SectionGetParams {
