@@ -1,4 +1,4 @@
-import { createApp } from "./app"
+import { createAppWithAuth } from "./create-app-with-auth"
 import { CourseModel } from "./models/canvas-lms/courses.model"
 
-createApp({ courseModel: new CourseModel() })
+createAppWithAuth({ courseModel: new CourseModel() })

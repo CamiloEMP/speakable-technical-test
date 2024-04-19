@@ -33,7 +33,7 @@ passport.deserializeUser(function (obj: any, done) {
   done(null, obj)
 })
 
-export const createApp = ({
+export const createAppWithAuth = ({
   courseModel
 }: {
   courseModel: CourseModelType
