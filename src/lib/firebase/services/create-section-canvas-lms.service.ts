@@ -9,6 +9,7 @@ export async function createSectionCanvasLMS(sections: Section[]) {
     sections.forEach((section) => {
       const sectionRef = SectionCollection.doc(section.id.toString())
 
+      // I do not use the spread operator here because I want to be explicit about the fields I am setting
       batch.set(sectionRef, {
         name: section.name,
         course_id: section.course_id,

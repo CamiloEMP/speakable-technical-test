@@ -17,6 +17,7 @@ export async function createUsersFromSectionsCanvasLMS(sections: Section[]) {
     users.forEach((user) => {
       const userRef = UserCollection.doc(user.id.toString())
 
+      // I do not use the spread operator here because I want to be explicit about the fields I am setting
       batch.set(userRef, {
         username: user.name,
         last_name: user.last_name,
