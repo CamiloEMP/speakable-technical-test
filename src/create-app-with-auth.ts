@@ -41,6 +41,7 @@ export const createAppWithAuth = ({
   const app = express()
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
+  app.use(passport.initialize())
 
   app.get("/auth/canvas", passport.authenticate("oauth2"))
 
