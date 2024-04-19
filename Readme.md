@@ -53,3 +53,7 @@ Express, Typescript, Passport, Firebase Admin
 ## Why I am have two functions that initialize the app?
 
 I have two functions that initialize the app because for this project how I don't have access to the tokens from Canvas LMS, I thought that it would be a good idea to have a local server that simulates the Canvas LMS API, so I can test the app without having to make requests to the Canvas LMS API, asumming that the mock server will return the same data as the Canvas LMS API.
+
+## How firestore looks like
+
+![1713557367341](image/Readme/1713557367341.png)
