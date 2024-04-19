@@ -1,15 +1,12 @@
-import firebase from "firebase/app"
-import { getFirestore } from "firebase/firestore"
+import firebaseAdmin from "firebase-admin"
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID
-}
+import serviceAccount from "../../../serviceAccountKey.json"
+import { getFirestore } from "firebase-admin/firestore"
 
-const app = firebase.initializeApp(firebaseConfig)
+firebaseAdmin.initializeApp({
+  credential: firebaseAdmin.credential.cert(
+    serviceAccount as firebaseAdmin.ServiceAccount
+  )
+})
 
-export const firestore = getFirestore(app)
+export const firestore = getFirestore()
