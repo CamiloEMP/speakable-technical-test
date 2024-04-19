@@ -9,7 +9,7 @@ export async function createUsersFromSectionsCanvasLMS(sections: Section[]) {
     .flat()
     .filter((i) => i != null) as UserCanvasLMS[]
 
-  if (!users) return
+  if (!users || users.length === 0) return
 
   try {
     const batch = UserCollection.firestore.batch()

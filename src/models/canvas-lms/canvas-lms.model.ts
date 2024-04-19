@@ -13,12 +13,12 @@ export class CanvasLmsApi implements TCanvasLmsApi {
     }
   ): Promise<T> {
     try {
-      const response = await fetchCanvasApi(path, {
+      const response = await fetchCanvasApi<T>(path, {
         accessToken: accessToken,
         params: params
       })
 
-      return response as T
+      return response
     } catch (error) {
       throw error
     }

@@ -13,7 +13,7 @@ export const canvasFecthParams = (accessToken: string) => ({
   }
 })
 
-export const fetchCanvasApi = async (
+export const fetchCanvasApi = async <T>(
   path: string,
   {
     accessToken,
@@ -35,7 +35,7 @@ export const fetchCanvasApi = async (
       throw new CanvasLmsApiError(response.statusText)
     }
 
-    return response.json()
+    return response.json() as T
   } catch (error) {
     throw error
   }
